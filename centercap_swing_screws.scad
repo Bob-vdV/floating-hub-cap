@@ -11,10 +11,7 @@ module ArcPart(inner_diam, outer_diam, height, rot_angle, center_rot=true) {
 
 nuts_per_side = 2; // TODO move to params
 num_nuts = nuts_per_side * 2 + 1;
-
-echo("Swing inner diam:", swing_inner_diam);
-echo("try",  bearing_outer_diam + 2 * bearing_wall_width - 2 * arm_clearance);
-
+tiny = 0.01; // Tiny offsets to avoid non-manifold problems
 
 if(swing_inner_diam  * 2 - 2 * arm_clearance <= bearing_outer_diam + 2 * bearing_wall_width){
     echo("Warning: Bearing might not fit!!");
@@ -27,38 +24,23 @@ linear_extrude(arm_height){
         translate([-arm_width / 2, 0, 0])
         square([arm_width, swing_inner_diam]);
     
-        circle(r=swing_inner_diam);
+        circle(r=swing_inner_diam + tiny);
     }
 }
-
 difference() {
     total_angle = (num_nuts * nut_loose_width + (num_nuts + 1) * nut_clearance) /
     ((swing_inner_diam + nut_clearance + nut_loose_width / 2) * 2 * PI) * 360;
        
     rotate([0, 0, 90])
     ArcPart(swing_inner_diam * 2, 2 * arm_length, swing_height, total_angle);
-    
-    /*
-    cylinder(h=swing_height, r= arm_length);
-    
-    translate([arm_length, 6, 0])
-    rotate([0, 0, 180])
-    cube([2 * arm_length, 2 * arm_length, swing_height]);
-        
-    cylinder(h= swing_height, r = swing_inner_diam);*/
             
     // Screw holes ;)
     angle = (nut_loose_width + nut_clearance) /
     ((swing_inner_diam + nut_clearance + nut_loose_width / 2) * 2 * PI) * 360;
-    echo("Angle: ", angle);
     for(i=[-nuts_per_side: nuts_per_side]){
         rotate([0, 0, i * angle]) 
         translate([0, arm_length - nut_loose_width / 2 - nut_clearance, 0])
         {
-        /*
-            translate([0, 0, swing_height - screw_head_height]) //bearing_z_mid - screw_head_height / 2])
-            cylinder(h=screw_head_height, d=nut_loose_width); // Screw head
-            */
             cylinder(h=swing_height, d=nut_hole_size);
             
             cylinder(h=nut_height, d=nut_loose_width, $fn = 6); //Bottom nut
@@ -78,8 +60,8 @@ difference() {
     union() {
         for(i=[0:1]){
         rotate([0, 0, i * 180])
+        translate([-tiny, -tiny, 0])
         cube(bearing_inner_diam / 2);
         }
     }
 }
-

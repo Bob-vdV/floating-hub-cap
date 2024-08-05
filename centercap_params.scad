@@ -26,7 +26,6 @@ arm_width = 13.5;
 arm_clearance = 2;
 arm_length = inner_ring_diam / 2 - inner_ring_wall_width - arm_clearance;
 arm_height = 3; // 2;
-echo(arm_length);
 
 bearing_start_z_offset = 1.6;
 bearing_z_start = arm_height + bearing_start_z_offset;
