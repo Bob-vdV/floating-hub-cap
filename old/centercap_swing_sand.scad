@@ -2,8 +2,6 @@ include <centercap_params.scad>
 
 $fn = $preview ? 16 : 128;
 
-echo("Swing inner diam:", swing_inner_diam);
-
 if(swing_inner_diam  * 2 - arm_clearance <= bearing_outer_diam + 2 * bearing_wall_width){
     echo("Warning: Bearing might not fit!!");
 }

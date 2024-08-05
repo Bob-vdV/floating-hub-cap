@@ -37,12 +37,12 @@ jobs:
           tag_template: 'yyyy.mm.dd.i'
 
       - name: Zip files
-        run: zip -r files.zip build
+        run: zip -r STLs.zip build
 
       - name: Upload release
         uses: softprops/action-gh-release@v1
         with:
-            files: "files.zip"
+            files: "STLs.zip"
             fail_on_unmatched_files: true
             name: Release ${{ steps.generate_release_tag.outputs.next_release_tag }}
             tag_name: ${{ steps.generate_release_tag.outputs.next_release_tag }}

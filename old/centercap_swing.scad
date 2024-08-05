@@ -8,7 +8,6 @@ arm_width = 13.5;
 arm_clearance = 2;
 arm_length = inner_ring_diam / 2 - inner_ring_wall_width - arm_clearance;
 arm_height = 2;
-echo(arm_length);
 
 bearing_outer_diam = 22;
 bearing_inner_diam = 8;
@@ -32,7 +31,6 @@ notch_size = 2;
 notch_length = 3;
 
 swing_inner_diam = arm_length - nut_loose_width - 2 * nut_clearance; // TODO change name or *2
-echo("Swing inner diam:", swing_inner_diam);
 
 if(swing_inner_diam  * 2 <= bearing_outer_diam){
     echo("Warning: Bearing might not fit!!");
@@ -59,7 +57,6 @@ difference() {
     num_nuts = 1;
     angle = (nut_loose_width + nut_clearance) /
     ((swing_inner_diam + nut_clearance + nut_loose_width / 2) * 2 * PI) * 360; // TODO check
-    echo("Angle: ", angle);
     for(i=[-num_nuts: num_nuts]){
         rotate([0, 0, i * angle]) 
         translate([0, arm_length - nut_loose_width / 2 - nut_clearance, bearing_z_mid - nut_height / 2])
