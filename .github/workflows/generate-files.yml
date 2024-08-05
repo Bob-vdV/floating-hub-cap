@@ -4,6 +4,8 @@ on: [push, pull_request]
 jobs:
   generation:
     runs-on: ubuntu-latest
+    env:
+      QT_QPA_PLATFORM: offscreen
     steps:
       - name: Install Qt # openscad requires qt?
         uses: jurplel/install-qt-action@v4
