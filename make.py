@@ -62,8 +62,7 @@ def main():
         # 2. execute openscad in shell with json file
         for buildset in buildsets:
             output_stl = os.path.join(build_folder, buildset, model_filename.replace('.scad', '_' + buildset + '.stl'))
-            #output_stl = f"./{build_folder}/{model_filename.replace('.scad', '_' + buildset + '.stl')}"
-            subprocess.run(["openscad", "-o", output_stl, "-p", json_filename, "-P", buildset, output_filename], shell=True, check=True)
+            subprocess.run(["openscad", "-o", output_stl, "-p", json_filename, "-P", buildset, output_filename], shell=False, check=True)
 
     # 3. delete openscad files
     if delete_scad:

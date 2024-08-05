@@ -5,12 +5,15 @@ jobs:
   generation:
     runs-on: ubuntu-latest
     steps:
+      - name: Install Qt # openscad requires qt?
+        uses: jurplel/install-qt-action@v4
+
       - name: Install openscad
         uses: awalsh128/cache-apt-pkgs-action@latest # Cached install of openscad
         with:
           packages: openscad
 
-      - name: Set up Python
+      - name: Set up python
         uses: actions/setup-python@v5 
         with:
           python-version: '3.11'
@@ -18,8 +21,6 @@ jobs:
       - name: Checkout code
         uses: actions/checkout@v2
 
-      #- name: Install openscad
-      #  run: sudo apt-get install openscad
       - name: List files in the repository
         run: |
           ls ${{ github.workspace }}
