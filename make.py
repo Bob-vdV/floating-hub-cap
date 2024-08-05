@@ -69,7 +69,7 @@ def main():
     if delete_scad:
         print("Deleting openscad files...")
         for file in os.listdir(build_folder):
-            if file.endswith(".scad"):
+            if file.endswith(".scad") or file.endswith(".svg"):
                 os.remove(os.path.join(build_folder, file))
 
     print("\nDone")
