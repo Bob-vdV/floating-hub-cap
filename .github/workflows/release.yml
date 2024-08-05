@@ -1,13 +1,10 @@
-name: Generate STL files
-run-name: Generate STL files
+# Almost the same as 
+name: Release
+run-name: Release
 on:
   push:
-    branches:
-      - dev
-  pull_request:
-    branches:
+    branches: 
       - main
-      - dev
 jobs:
   generation:
     runs-on: ubuntu-latest
@@ -29,3 +26,9 @@ jobs:
 
       - name: Run python script
         run: python ${{ github.workspace }}/make.py
+
+      - name: Upload release
+        uses: softprops/action-gh-release@v1
+        with:
+            files: "build/*"
+            
