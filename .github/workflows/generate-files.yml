@@ -8,4 +8,4 @@ jobs:
       - name: Install openscad
         run: sudo apt-get install openscad
       - name: Run python script
-        run: python ./make.py
+        run: python make.py
