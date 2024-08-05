@@ -1,0 +1,11 @@
+name: Generate STL files
+run-name: Generate STL files
+on: [push, pull_request]
+jobs:
+  generation:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Install openscad
+        run: sudo apt-get install openscad
+      - name: Run python script
+        run: python ${{ github.workspace }}/make.py
