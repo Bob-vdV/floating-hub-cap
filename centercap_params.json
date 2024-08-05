@@ -1,0 +1,15 @@
+{
+    "fileFormatVersion": "1",
+    "parameterSets": {
+        "65mm": {
+            "clip_straight_height": "4.5",
+            "inner_ring_diam": "56",
+            "outer_diam": "65"
+        },
+        "75mm": {
+            "clip_straight_height": "4.5",
+            "inner_ring_diam": "71",
+            "outer_diam": "75"
+        }
+    }
+}
