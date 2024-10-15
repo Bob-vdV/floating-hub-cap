@@ -2,6 +2,7 @@ import os
 import shutil
 import subprocess
 import json
+import re
 
 openscad_path = "openscad"
 
@@ -25,7 +26,8 @@ delete_scad = True
 # Build everything
 with open(json_filename) as json_file:
     params = json.load(json_file)
-buildsets = params["parameterSets"].keys()
+parametersets = params["parameterSets"]
+buildsets = parametersets.keys()
 
 
 def main():
@@ -38,32 +40,34 @@ def main():
     for buildset in buildsets:
         os.mkdir(os.path.join(build_folder, buildset))
 
+    with open(params_filename, "rt") as params_file:
+        original_params = params_file.read()
+
     # Copy openscad libraries first
     for include_filename in include_filenames:
         shutil.copyfile(include_filename, os.path.join(build_folder, include_filename))
 
     for model_filename in model_filenames:
-        with open(params_filename, "rt") as params_file:
-            params = params_file.read()
+        shutil.copyfile(model_filename, os.path.join(build_folder, model_filename))            
 
-        with open(model_filename, "rt") as model_file:
-            model = model_file.read()
+    for parameterset in parametersets:
+        # Replace all given variables of json in params filename
+        build_params = original_params
+        for parameter in parametersets[parameterset]:
+            pattern_str = r"\s" + parameter + r"\s*=\s*\S*;" 
+            if len(re.findall(pattern_str, build_params)) == 0: 
+                print(f"WARNING: {parameter} is not replaced for {parameterset}")
+            build_params = re.sub(pattern_str , f"\n{parameter} = {parametersets[parameterset][parameter]};", build_params)
 
-        # 1. combine params with model
-        output_model_str = (
-            params + "\n" + model.replace(f"include <centercap_params.scad>", "")
-        )
-
-        output_filename = os.path.join(build_folder, model_filename)
-        with open(output_filename, "wt") as output_model_file:
-            output_model_file.write(output_model_str)
-
-        # 2. execute openscad in shell with json file
-        for buildset in buildsets:
+        # Write changed params to file
+        with open(os.path.join(build_folder, params_filename), "wt") as build_file:
+            build_file.write(build_params)
+        
+        for model_filename in model_filenames:
             output_stl = os.path.join(
                 build_folder,
-                buildset,
-                model_filename.replace(".scad", "_" + buildset + ".stl"),
+                parameterset,
+                model_filename.replace(".scad", "_" + parameterset + ".stl"),
             )
             subprocess.run(
                 [
@@ -71,11 +75,7 @@ def main():
                     "--hardwarnings",
                     "-o",
                     output_stl,
-                    "-p",
-                    json_filename,
-                    "-P",
-                    buildset,
-                    output_filename,
+                    os.path.join(build_folder, model_filename),
                 ],
                 shell=False,
                 check=True,
