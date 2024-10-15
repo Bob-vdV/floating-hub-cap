@@ -10,6 +10,11 @@
             "clip_straight_height": "4.5",
             "inner_ring_diam": "71",
             "outer_diam": "75"
+        },
+        "68mm": {
+            "clip_straight_height": "4",
+            "inner_ring_diam": "62",
+            "outer_diam": "68"
         }
     }
 }
