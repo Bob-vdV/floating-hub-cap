@@ -40,7 +40,7 @@ jobs:
         run: | 
           for b in build/*
           do
-            zip -r $b.zip $b
+            zip -r $(basename $b).zip $b
           done
           
       - name: Upload release
