@@ -5,6 +5,7 @@ Openscad files for a floating wheel hub cap. More details are at https://www.pri
 The latest STL files are downloadable at https://github.com/Bob-vdV/floating-hub-cap/releases/latest.
 
 ## Customizing and generating STL files automatically
+
 To generate the STL files automatically you need openscad and python installed and have both added to PATH (If you don't know what that means, I'd recommend the manual generation described below). 
 
 The parameters of the hub cap can be set in `centercap_params.json`. Any parameter listed in `centercap_params.scad` can be changed via the json file. 
