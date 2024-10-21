@@ -15,6 +15,11 @@
             "clip_straight_height": "4",
             "inner_ring_diam": "62",
             "outer_diam": "68"
+        },
+        "60mm": {
+            "clip_straight_height": "4.5",
+            "inner_ring_diam": "56",
+            "outer_diam": "60"
         }
     }
 }
