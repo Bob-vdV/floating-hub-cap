@@ -24,6 +24,10 @@ include_filenames = ["fast_dome.scad", "vw.scad", "vw-logo.svg"]
 build_folder = "build"
 delete_scad = True
 
+# Openscad flags
+use_manifold = False
+hard_warnings = False
+
 # Build everything
 with open(json_filename) as json_file:
     params = json.load(json_file)
@@ -70,14 +74,18 @@ def main():
                 parameterset,
                 model_filename.replace(".scad", "_" + parameterset + ".stl"),
             )
-            subprocess.run(
-                [
+            command = [
                     "openscad",
-                    "--hardwarnings",
                     "-o",
                     output_stl,
                     os.path.join(build_folder, model_filename),
-                ],
+                ]
+            if use_manifold:
+                command += ["--enable", "manifold"]
+            if hard_warnings:
+                command += ["--hardwarnings"]
+            subprocess.run(
+                command,
                 shell=False,
                 check=True,
             )

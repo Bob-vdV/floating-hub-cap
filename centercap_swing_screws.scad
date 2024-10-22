@@ -10,7 +10,7 @@ module ArcPart(inner_diam, outer_diam, height, rot_angle, center_rot=true) {
 }
 
 if(swing_inner_radius  * 2 - 2 * arm_clearance <= bearing_outer_diam + 2 * bearing_wall_width){
-    echo("Warning: Bearing might not fit!!");
+    echo("Warning: Bearing and swing might collide!");
 }
 
 module centercap_swing_screws() {
