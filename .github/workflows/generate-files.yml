@@ -19,7 +19,7 @@ jobs:
 #        with:
 #          packages: openscad
       - name: Install openscad
-        run: snap install openscad-nightly
+        run: sudo snap install openscad-nightly
 
       - name: Set up python
         uses: actions/setup-python@v5 
