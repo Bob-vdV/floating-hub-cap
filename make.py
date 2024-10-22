@@ -25,7 +25,7 @@ build_folder = "build"
 delete_scad = True
 
 # Openscad flags
-use_manifold = True
+use_manifold = False
 hard_warnings = False
 
 # Build everything

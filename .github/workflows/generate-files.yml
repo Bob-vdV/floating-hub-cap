@@ -14,15 +14,15 @@ jobs:
     env:
       QT_QPA_PLATFORM: offscreen
     steps:
-#      - name: Install openscad
-#        uses: awalsh128/cache-apt-pkgs-action@latest # Cached install of openscad
-#        with:
-#          packages: openscad
       - name: Install openscad
-        run: sudo snap install openscad-nightly
+        uses: awalsh128/cache-apt-pkgs-action@latest # Cached install of openscad
+        with:
+          packages: openscad
+#      - name: Install openscad
+#        run: sudo snap install openscad-nightly
 
-      - name: Create alias for nightly
-        run: alias openscad="openscad-nightly"
+#      - name: Create alias for nightly
+#        run: alias openscad="openscad-nightly"
 
       - name: Set up python
         uses: actions/setup-python@v5 
