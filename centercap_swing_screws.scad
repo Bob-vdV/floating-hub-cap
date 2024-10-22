@@ -9,34 +9,33 @@ module ArcPart(inner_diam, outer_diam, height, rot_angle, center_rot=true) {
     }   
 }
 
-nuts_per_side = 2; // TODO move to params
-num_nuts = nuts_per_side * 2 + 1;
-tiny = 0.01; // Tiny offsets to avoid non-manifold problems
-
-if(swing_inner_diam  * 2 - 2 * arm_clearance <= bearing_outer_diam + 2 * bearing_wall_width){
+if(swing_inner_radius  * 2 - 2 * arm_clearance <= bearing_outer_diam + 2 * bearing_wall_width){
     echo("Warning: Bearing might not fit!!");
 }
+
+module centercap_swing_screws() {
+num_nuts = nuts_per_side * 2 + 1;
 
 linear_extrude(arm_height){
     circle(d=arm_width);
     
     intersection() {
         translate([-arm_width / 2, 0, 0])
-        square([arm_width, swing_inner_diam]);
+        square([arm_width, swing_inner_radius]);
     
-        circle(r=swing_inner_diam + tiny);
+        circle(r=swing_inner_radius + tiny);
     }
 }
 difference() {
     total_angle = (num_nuts * nut_loose_width + (num_nuts + 1) * nut_clearance) /
-    ((swing_inner_diam + nut_clearance + nut_loose_width / 2) * 2 * PI) * 360;
+    ((swing_inner_radius + nut_clearance + nut_loose_width / 2) * 2 * PI) * 360;
        
     rotate([0, 0, 90])
-    ArcPart(swing_inner_diam * 2, 2 * arm_length, swing_height, total_angle);
+    ArcPart(swing_inner_radius * 2, 2 * arm_length, swing_height, total_angle);
             
     // Screw holes ;)
     angle = (nut_loose_width + nut_clearance) /
-    ((swing_inner_diam + nut_clearance + nut_loose_width / 2) * 2 * PI) * 360;
+    ((swing_inner_radius + nut_clearance + nut_loose_width / 2) * 2 * PI) * 360;
     for(i=[-nuts_per_side: nuts_per_side]){
         rotate([0, 0, i * angle]) 
         translate([0, arm_length - nut_loose_width / 2 - nut_clearance, 0])
@@ -65,3 +64,6 @@ difference() {
         }
     }
 }
+}
+
+centercap_swing_screws();

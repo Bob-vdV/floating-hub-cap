@@ -16,6 +16,7 @@ model_filenames = [
     "centercap_top_vw_flat.scad",
     "centercap_top_vw_curved.scad",
     "hubcap_tester.scad",
+    "centercap_assembly.scad"
 ]
 
 include_filenames = ["fast_dome.scad", "vw.scad", "vw-logo.svg"]

@@ -32,8 +32,8 @@ module CenterCapTopPlain() {
                 rotate([0, 0, 90 + i * 180])
                 translate([endcap_tolerance / 2, endcap_tolerance / 2, 0])
                 cube(ec_bearing_diam / 2);
+                }
             }
-    }
         }
     }
 }

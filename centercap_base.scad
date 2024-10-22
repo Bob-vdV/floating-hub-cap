@@ -2,6 +2,8 @@ include <centercap_params.scad>
 
 $fn = $preview ? 16 : 128;
 
+module centercap_base(){
+
 // Base plate 
 linear_extrude(base_height){
     difference(){
@@ -13,6 +15,7 @@ linear_extrude(base_height){
 // Bearing holder
 translate([0, 0, base_height])
 {
+    // Bearing ring
     linear_extrude(bearing_height){
         difference(){
             circle(d=bearing_outer_diam + 2 * bearing_wall_width);
@@ -20,6 +23,7 @@ translate([0, 0, base_height])
         }
     }
 
+    // Inner ring
     linear_extrude(inner_ring_height){
         difference() {
             circle(d=inner_ring_diam);
@@ -37,18 +41,20 @@ translate([0, 0, base_height])
     clip_rot = clip_length / inner_ring_diam / PI * 360;
     for(i = [0: 4-1]) {
         rotate([0, 0, i * 360/4 - clip_rot / 2]) {
-            rotate_extrude(angle= clip_rot) { // ?????
+            rotate_extrude(angle=clip_rot) {
                 translate([inner_ring_diam / 2 - clip_width, 0, 0])
                 
                     polygon([
-                    [0, 0],
-                    [0, clip_height],
-                    [clip_width, clip_height],
-                    [clip_width + 2, clip_height - clip_slant_height],
-                    [clip_width, clip_straight_height],
-                    [clip_width, 0],
+                        [0, 0],
+                        [0, clip_height],
+                        [clip_width, clip_height],
+                        [clip_width + 2, clip_height - clip_slant_height],
+                        [clip_width, clip_straight_height],
+                        [clip_width, 0],
                     ]);   
             }   
         }
     }
 }
+}
+centercap_base();
