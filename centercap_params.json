@@ -20,6 +20,11 @@
             "clip_straight_height": "4.5",
             "inner_ring_diam": "56",
             "outer_diam": "60"
+        },
+        "bad_55mm": {
+            "clip_straight_height": "4.5",
+            "inner_ring_diam": "51",
+            "outer_diam": "55"            
         }
     }
 }

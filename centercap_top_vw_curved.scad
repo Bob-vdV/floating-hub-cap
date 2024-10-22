@@ -5,6 +5,8 @@ use <vw.scad>
 
 $fn = $preview ? 16 : 128;
 
+
+module centercap_top_vw_curved() {
 CenterCapTopPlain();
 
 intersection() {
@@ -21,3 +23,5 @@ intersection()
     linear_extrude(dome_height)
     vw(outer_diam + 0.05); // slightly larger to fix outer edges
 }
+}
+centercap_top_vw_curved();
