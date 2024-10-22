@@ -19,6 +19,9 @@ jobs:
       - name: Install openscad
         run: sudo snap install openscad-nightly
 
+      - name: Create alias for nightly
+        run: alias openscad="openscad-nightly"
+
       - name: Set up python
         uses: actions/setup-python@v5 
         with:
