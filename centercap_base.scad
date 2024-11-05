@@ -30,9 +30,10 @@ translate([0, 0, base_height])
             circle(d=inner_ring_diam - 2 * inner_ring_wall_width);
 
             // Clearances for clips
-            for(i=[0:(number_of_clips / 2)-1]){
+            for(i=[0:number_of_clips-1]){
                 rotate([0, 0, i * (360 / number_of_clips)])
-                square([outer_diam, clip_length + 2* clip_clearance], center=true);
+                translate([outer_diam / 2, 0])
+                square([outer_diam, clip_length + 2 * clip_clearance], center=true);
             }
         }
     }
