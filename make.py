@@ -3,8 +3,9 @@ import shutil
 import subprocess
 import json
 import re
+import argparse
 
-openscad_path = "openscad"
+default_openscad_path = "openscad"
 
 params_filename = "centercap_params.scad"
 json_filename = "centercap_params.json"  # Actual param values stored here
@@ -25,7 +26,7 @@ build_folder = "build"
 delete_scad = True
 
 # Openscad flags
-use_manifold = False
+use_manifold = True
 hard_warnings = False
 
 # Build everything
@@ -36,6 +37,12 @@ buildsets = parametersets.keys()
 
 
 def main():
+    # Parse input arguments
+    parser = argparse.ArgumentParser()
+    parser.add_argument("--openscad_path", default=default_openscad_path)
+    args = vars(parser.parse_args())
+    openscad_path = args["openscad_path"]
+
     # Remove old build folder
     if os.path.exists(build_folder):
         shutil.rmtree(build_folder)
@@ -75,7 +82,7 @@ def main():
                 model_filename.replace(".scad", "_" + parameterset + ".stl"),
             )
             command = [
-                    "openscad",
+                    openscad_path,
                     "-o",
                     output_stl,
                     os.path.join(build_folder, model_filename),
