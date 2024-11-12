@@ -12,10 +12,6 @@ jobs:
     env:
       QT_QPA_PLATFORM: offscreen
     steps:
-#      - name: Install openscad
-#        uses: awalsh128/cache-apt-pkgs-action@latest # Cached install of openscad
-#        with:
-#          packages: openscad
       - name: Install openscad
         run: sudo snap install openscad-nightly
 
@@ -29,8 +25,7 @@ jobs:
 
       - name: Run python script
         run: |
-          alias openscad="openscad-nightly"
-          python ${{ github.workspace }}/make.py
+          python ${{ github.workspace }}/make.py --openscad_path="openscad-nightly"
 
       - name: Generate release tag
         id: generate_release_tag
