@@ -20,7 +20,7 @@ inner_ring_wall_width = 2;
 clip_clearance = 2;
 clip_length = 13;
 clip_height = 12;
-clip_width = 2;
+clip_width = 1.4;
 clip_straight_height = 4.5;
 clip_slant_height = 5;
 
