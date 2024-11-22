@@ -1,4 +1,4 @@
-vw_svg_size = 1076.806;
+vw_svg_size = 564.480;
 
 module vw(size) {
     scaler = size / vw_svg_size;

@@ -7,21 +7,20 @@ $fn = $preview ? 16 : 128;
 
 
 module centercap_top_vw_curved() {
-CenterCapTopPlain();
+    CenterCapTopPlain();
 
-intersection() {
-    translate([0, 0, -logo_height])
-    dome(d=outer_diam, h=dome_height);
+    intersection() {
+        translate([0, 0, -logo_height])
+        dome(d=endcap_outer_diam, h=dome_height);
 
-    cylinder(h=dome_height, d=outer_diam);
-}
+        cylinder(h=dome_height, d=endcap_outer_diam);
+    }
 
-intersection()
-{
-    dome(d=outer_diam, h=dome_height);
+    intersection() {
+        dome(d=endcap_outer_diam, h=dome_height);
 
-    linear_extrude(dome_height)
-    vw(outer_diam + 0.05); // slightly larger to fix outer edges
-}
+        linear_extrude(dome_height)
+        vw(endcap_outer_diam); 
+    }
 }
 centercap_top_vw_curved();

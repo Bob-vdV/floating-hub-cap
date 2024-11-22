@@ -6,5 +6,10 @@ $fn = $preview ? 16 : 128;
 
 CenterCapTopPlain();
 
-linear_extrude(logo_height)
-vw(outer_diam);
+linear_extrude(logo_height) {
+    intersection() {
+        circle(d=endcap_outer_diam);
+            
+        vw(endcap_outer_diam);
+    }
+}
