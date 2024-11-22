@@ -45,7 +45,7 @@ nut_clearance = 0.1;
 screw_head_height = 2 * 3.2;
 
 swing_clearance = 1;
-swing_height = bearing_height + arm_height + bearing_start_z_offset - swing_clearance - screw_head_height;//bearing_z_mid + nut_height / 2;
+swing_height = bearing_height + arm_height + bearing_start_z_offset - swing_clearance - screw_head_height;
 
 shaft_height = 12.25;
 notch_size = 2;
@@ -54,6 +54,7 @@ notch_length = 3;
 swing_inner_radius = arm_length - nut_loose_width - 2 * nut_clearance;
 
 // Top parameters
+
 endcap_tolerance = 0.4;
 endcap_height = 1;
 
@@ -66,6 +67,7 @@ top_diam = 10.5;
 top_height = 1.1;
 
 endcap_hole_height = bottom_height + mid_height + top_height - endcap_height;
+endcap_outer_diam = outer_diam - endcap_tolerance;
 
 // Curved VW parameters
 logo_height = 1;

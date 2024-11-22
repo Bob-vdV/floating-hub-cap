@@ -10,7 +10,7 @@ module CenterCapTopPlain() {
     rotate([180, 0, 0])
     difference(){
         union() {
-            cylinder(h=bottom_height, d=outer_diam);
+            cylinder(h=bottom_height, d=endcap_outer_diam);
             
             translate([0, 0, top_height])
             cylinder(h=mid_height, d=mid_diam);

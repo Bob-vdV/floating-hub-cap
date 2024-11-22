@@ -22,11 +22,11 @@
             "outer_diam": "60"
         },
         "55mm": {
+            "arm_clearance": "1.5",
+            "bearing_wall_width": "1.5",
             "clip_straight_height": "4.5",
             "inner_ring_diam": "51",
-            "outer_diam": "55",
-            "bearing_wall_width": "1.5",
-            "arm_clearance": "1.5"           
+            "outer_diam": "55"
         }
     }
 }
