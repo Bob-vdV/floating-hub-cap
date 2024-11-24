@@ -51,10 +51,12 @@ shaft_height = 12.25;
 notch_size = 2;
 notch_length = 3;
 
+swing_bearing_bump_height = 0.5;
+swing_bearing_bump_depth = 0.1;
+
 swing_inner_radius = arm_length - nut_loose_width - 2 * nut_clearance;
 
 // Top parameters
-
 endcap_tolerance = 0.4;
 endcap_height = 1;
 

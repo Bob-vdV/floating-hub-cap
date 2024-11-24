@@ -27,6 +27,14 @@
             "clip_straight_height": "4.5",
             "inner_ring_diam": "51",
             "outer_diam": "55"
+        },
+        "100mm": {
+            "arm_clearance": "4",
+            "clip_straight_height": "5.7",
+            "inner_ring_diam": "93.8",
+            "number_of_clips": "6",
+            "nut_clearance": "0.5",
+            "outer_diam": "100.4"
         }
     }
 }
