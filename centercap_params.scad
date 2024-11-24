@@ -52,7 +52,7 @@ notch_size = 2;
 notch_length = 3;
 
 swing_bearing_bump_height = 0.5;
-swing_bearing_bump_depth = 0.2;
+swing_bearing_bump_depth = 0.1;
 
 swing_inner_radius = arm_length - nut_loose_width - 2 * nut_clearance;
 

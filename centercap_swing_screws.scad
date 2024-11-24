@@ -57,20 +57,11 @@ module centercap_swing_screws() {
             cylinder(shaft_height, d=bearing_inner_diam - bearing_tolerance);
 
             // Small bump for locking bearing in place
-            translate([0, 0, bearing_height]) {
-                cylinder(
-                    h=swing_bearing_bump_height/2, 
-                    d1=bearing_inner_diam - bearing_tolerance, 
-                    d2=bearing_inner_diam - bearing_tolerance + 2 * swing_bearing_bump_depth
-                );
-                
-                translate([0, 0, swing_bearing_bump_height/2])
-                cylinder(
-                    h=swing_bearing_bump_height/2, 
-                    d1=bearing_inner_diam - bearing_tolerance + 2 * swing_bearing_bump_depth,
-                    d2=bearing_inner_diam - bearing_tolerance
-                );
-            }
+            translate([0, 0, bearing_height]) 
+            cylinder(
+                h=swing_bearing_bump_height, 
+                d=bearing_inner_diam - bearing_tolerance + 2 * swing_bearing_bump_depth
+            );
         }
 
         // Connection with endcap
