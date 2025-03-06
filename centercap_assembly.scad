@@ -22,7 +22,7 @@ rotate([0, 180, 0])
 centercap_swing_screws();
 
 color("silver")
-translate([0, 0, -endcap_hole_height])
+translate([0, 0, - (bottom_height + mid_height + top_height)]) // TODO fix
 rotate([0, 180, 180])
 centercap_top_vw_curved();
 }

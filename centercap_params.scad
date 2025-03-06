@@ -1,11 +1,12 @@
 // General parameters
 tiny = 0.01;
+layer_height = 0.2;
 
 // Bearing parameters
 bearing_outer_diam = 22;
 bearing_inner_diam = 8;
 bearing_height = 7;
-bearing_tolerance= 0.1;
+bearing_tolerance= 0.0;
 
 // Base parameters
 base_height = 2;
@@ -41,13 +42,13 @@ nut_height = 3.2;
 nut_hole_size = 4.2;
 nut_tolerance = 0.2;
 nut_loose_width = nut_width + nut_tolerance;
-nut_clearance = 0.1;
+nut_clearance = 0.2; // Wall thickness
 screw_head_height = 2 * 3.2;
 
 swing_clearance = 1;
 swing_height = bearing_height + arm_height + bearing_start_z_offset - swing_clearance - screw_head_height;
 
-shaft_height = 12.25;
+shaft_height = 9.25;
 notch_size = 2;
 notch_length = 3;
 
@@ -55,6 +56,8 @@ swing_bearing_bump_height = 0.5;
 swing_bearing_bump_depth = 0.1;
 
 swing_inner_radius = arm_length - nut_loose_width - 2 * nut_clearance;
+
+blok_connector_scale = 0.70;
 
 // Top parameters
 endcap_tolerance = 0.4;
