@@ -12,7 +12,7 @@ bearing_tolerance= 0.0;
 base_height = 2;
 outer_diam = 65;
 
-bearing_wall_width = 2.5;
+bearing_wall_width = 1.6;
 
 inner_ring_height = 10;
 inner_ring_diam = 56;
@@ -28,7 +28,7 @@ clip_slant_height = 5;
 
 // Swing parameters
 arm_width = 13.5;
-arm_clearance = 2;
+arm_clearance = 3.5;
 arm_length = inner_ring_diam / 2 - inner_ring_wall_width - arm_clearance;
 arm_height = 3;
 
