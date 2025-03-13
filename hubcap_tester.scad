@@ -17,7 +17,6 @@ difference() {
     cylinder(h=clip_straight_height - endcap_tolerance, d=holder_inner_diam);
 
     cylinder(h=clip_straight_height - endcap_tolerance, d=holder_inner_diam - 2);
-    
 }
 
 bit_diam = 7;

@@ -41,7 +41,9 @@ translate([0, 0, base_height])
     // Clips
     clip_rot = clip_length / inner_ring_diam / PI * 360;
     for(i = [0: number_of_clips-1]) {
-        rotate([0, 0, i * (360 / number_of_clips) - clip_rot / 2]) {
+        rotate([0, 0, i * (360 / number_of_clips)]) {
+            intersection() {
+            rotate([0, 0, -clip_rot/2])
             rotate_extrude(angle=clip_rot) {
                 translate([inner_ring_diam / 2 - clip_width, 0, 0])
 
@@ -53,6 +55,9 @@ translate([0, 0, base_height])
                         [clip_width, clip_straight_height],
                         [clip_width, 0],
                     ]);
+            }
+            translate([inner_ring_diam / 2 - clip_width, -clip_length/2, 0])
+            cube([clip_width + 2, clip_length, clip_height]);
             }
         }
     }

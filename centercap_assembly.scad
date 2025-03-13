@@ -6,7 +6,7 @@ Intended for visual inspection only
 include <centercap_params.scad>
 use <centercap_base.scad>
 use <centercap_swing_screws.scad>
-use <centercap_top_vw_curved.scad>
+use <centercap_top_vw_flat.scad>
 use <centercap_top_plain.scad>
 
 $fn = $preview ? 16 : 128;
@@ -22,9 +22,9 @@ rotate([0, 180, 0])
 centercap_swing_screws();
 
 color("silver")
-translate([0, 0, - (bottom_height + mid_height + top_height)]) // TODO fix
+translate([0, 0, - (bottom_height + mid_height + top_height) - 0.3]) // TODO fix
 rotate([0, 180, 180])
-centercap_top_vw_curved();
+centercap_top_vw_flat();
 }
 
 rotate([-90, 0, 0])

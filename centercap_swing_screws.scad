@@ -1,4 +1,5 @@
 include <centercap_params.scad>
+use <key.scad>
 $fn = $preview ? 16 : 128;
 
 module ArcPart(inner_diam, outer_diam, height, rot_angle, center_rot=true) {
@@ -16,6 +17,8 @@ if(swing_inner_radius  * 2 - 2 * arm_clearance <= bearing_outer_diam + 2 * beari
 module centercap_swing_screws() {
     num_nuts = nuts_per_side * 2 + 1;
 
+    difference() {
+    union() {
     linear_extrude(arm_height){
         circle(d=arm_width);
         
@@ -61,18 +64,31 @@ module centercap_swing_screws() {
     translate([0, 0, arm_height])
     cylinder(bearing_start_z_offset, d=10.5);
 
-    translate([0, 0, bearing_z_start])
-    difference() {
-        union() {
-            cylinder(bearing_height, d=bearing_inner_diam - bearing_tolerance);
-            translate([0, 0, bearing_height])
-            cylinder(shaft_height - bearing_height, d=bearing_inner_diam - bearing_tolerance - endcap_tolerance);
+    translate([0, 0, bearing_z_start]){
+        difference() {
+            union() {
+                cylinder(bearing_height, d=bearing_inner_diam - bearing_tolerance);
+                translate([0, 0, bearing_height])
+                cylinder(shaft_height - bearing_height, d=shaft_upper_diam);
+            }
+            
+            
         }
-        
         translate([0, 0, shaft_height])
-        scale([blok_connector_scale, blok_connector_scale, blok_connector_scale])
-        rotate([180, 0, 0])
-        import("000a_ConnectorNeg_Flat.stl");
+        Key();    
+    }
+    }
+    cylinder(shaft_height+ bearing_z_start - m3_roof_thickness, d=m3_head_diam);
+    cylinder(shaft_height+ bearing_z_start, d=m3_loose_hole_diam);
+    
+    translate([0, 0, shaft_height+ bearing_z_start - m3_roof_thickness])
+    intersection() {
+        cylinder(h=layer_height, d=shaft_upper_diam);
+        
+        translate([-m3_loose_hole_diam/2, -m3_head_diam/2])
+        cube([m3_loose_hole_diam, m3_head_diam, layer_height]);
+    }
+    
     }
 }
 
