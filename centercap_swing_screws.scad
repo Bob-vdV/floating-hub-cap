@@ -1,4 +1,5 @@
 include <centercap_params.scad>
+use <key.scad>
 $fn = $preview ? 16 : 128;
 
 module ArcPart(inner_diam, outer_diam, height, rot_angle, center_rot=true) {
@@ -16,6 +17,8 @@ if(swing_inner_radius  * 2 - 2 * arm_clearance <= bearing_outer_diam + 2 * beari
 module centercap_swing_screws() {
     num_nuts = nuts_per_side * 2 + 1;
 
+    difference() {
+    union() {
     linear_extrude(arm_height){
         circle(d=arm_width);
         
@@ -43,6 +46,16 @@ module centercap_swing_screws() {
                 cylinder(h=swing_height, d=nut_hole_size);
                 
                 cylinder(h=nut_height, d=nut_loose_width, $fn = 6); // Bottom nut
+                
+                // Small cutout on top for better printability
+                translate([0, 0, nut_height + layer_height/2])
+                cube([
+                    nut_loose_width / 2, 
+                    sqrt(3) / 2 * nut_loose_width, 
+                    layer_height
+                    ], 
+                    center=true
+                );
             }
         }
     }
@@ -51,28 +64,31 @@ module centercap_swing_screws() {
     translate([0, 0, arm_height])
     cylinder(bearing_start_z_offset, d=10.5);
 
-    translate([0, 0, bearing_z_start])
-    difference() {
-        union() {
-            cylinder(shaft_height, d=bearing_inner_diam - bearing_tolerance);
-
-            // Small bump for locking bearing in place
-            translate([0, 0, bearing_height]) 
-            cylinder(
-                h=swing_bearing_bump_height, 
-                d=bearing_inner_diam - bearing_tolerance + 2 * swing_bearing_bump_depth
-            );
-        }
-
-        // Connection with endcap
-        translate([0, 0, shaft_height - endcap_hole_height])
-        union() {
-            for(i=[0:1]){
-            rotate([0, 0, i * 180])
-            translate([-tiny, -tiny, 0])
-            cube(bearing_inner_diam / 2);
+    translate([0, 0, bearing_z_start]){
+        difference() {
+            union() {
+                cylinder(bearing_height, d=bearing_inner_diam - bearing_tolerance);
+                translate([0, 0, bearing_height])
+                cylinder(shaft_height - bearing_height, d=shaft_upper_diam);
             }
+            
+            
         }
+        translate([0, 0, shaft_height])
+        Key();    
+    }
+    }
+    cylinder(shaft_height+ bearing_z_start - m3_roof_thickness, d=m3_head_diam);
+    cylinder(shaft_height+ bearing_z_start, d=m3_loose_hole_diam);
+    
+    translate([0, 0, shaft_height+ bearing_z_start - m3_roof_thickness])
+    intersection() {
+        cylinder(h=layer_height, d=shaft_upper_diam);
+        
+        translate([-m3_loose_hole_diam/2, -m3_head_diam/2])
+        cube([m3_loose_hole_diam, m3_head_diam, layer_height]);
+    }
+    
     }
 }
 

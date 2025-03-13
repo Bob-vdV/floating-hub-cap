@@ -16,11 +16,10 @@ model_filenames = [
     "centercap_top_plain.scad",
     "centercap_top_vw_flat.scad",
     "centercap_top_vw_curved.scad",
-    "hubcap_tester.scad",
     "centercap_assembly.scad"
 ]
 
-include_filenames = ["fast_dome.scad", "vw.scad", "vw-logo.svg"]
+include_filenames = ["fast_dome.scad", "vw.scad", "key.scad", "vw-logo.svg"]
 
 build_folder = "build"
 delete_scad = True
@@ -88,7 +87,7 @@ def main():
                     os.path.join(build_folder, model_filename),
                 ]
             if use_manifold:
-                command += ["--enable", "manifold"]
+                command += ["--backend=manifold"]
             if hard_warnings:
                 command += ["--hardwarnings"]
             subprocess.run(
