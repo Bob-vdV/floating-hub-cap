@@ -43,21 +43,21 @@ translate([0, 0, base_height])
     for(i = [0: number_of_clips-1]) {
         rotate([0, 0, i * (360 / number_of_clips)]) {
             intersection() {
-            rotate([0, 0, -clip_rot/2])
-            rotate_extrude(angle=clip_rot) {
-                translate([inner_ring_diam / 2 - clip_width, 0, 0])
+                rotate([0, 0, -clip_rot/2])
+                rotate_extrude(angle=clip_rot) {
+                    translate([inner_ring_diam / 2 - clip_width, 0, 0])
 
-                    polygon([
-                        [0, 0],
-                        [0, clip_height],
-                        [clip_width, clip_height],
-                        [clip_width + 2, clip_height - clip_slant_height],
-                        [clip_width, clip_straight_height],
-                        [clip_width, 0],
-                    ]);
-            }
-            translate([inner_ring_diam / 2 - clip_width, -clip_length/2, 0])
-            cube([clip_width + 2, clip_length, clip_height]);
+                        polygon([
+                            [0, 0],
+                            [0, clip_height],
+                            [clip_width, clip_height],
+                            [clip_width + clip_end_width, clip_height - clip_slant_height],
+                            [clip_width, clip_straight_height],
+                            [clip_width, 0],
+                        ]);
+                }
+                translate([inner_ring_diam / 2 - clip_width, - clip_length / 2, 0])
+                cube([clip_width + clip_end_width, clip_length, clip_height]);
             }
         }
     }
