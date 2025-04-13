@@ -35,6 +35,12 @@
             "number_of_clips": "6",
             "nut_clearance": "0.5",
             "outer_diam": "100.4"
+        },
+        "64mm (Saturn, Vauxhall, Opel)": {
+            "clip_straight_height": "4.5",
+            "inner_ring_diam": "61",
+            "number_of_clips": "6",
+            "outer_diam": "64"
         }
     }
 }

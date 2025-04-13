@@ -18,13 +18,14 @@ inner_ring_height = 10;
 inner_ring_diam = 56;
 inner_ring_wall_width = 2;
 
-number_of_clips = 4;
+number_of_clips = 6;
 clip_clearance = 2;
-clip_length = 13;
+clip_length = 8;
 clip_height = 12;
-clip_width = 1.4;
+clip_width = 1.8;
 clip_straight_height = 4.5;
 clip_slant_height = 5;
+clip_end_width = 1;
 
 // Top parameters
 endcap_tolerance = 0.2;
