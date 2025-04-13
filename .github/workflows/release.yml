@@ -40,7 +40,7 @@ jobs:
           for b in build/*
           do
             n=${b#build/}
-            zip -r "($n).zip" $b
+            zip -r "$n.zip" "$b"
           done
           
       - name: Upload release
