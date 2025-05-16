@@ -12,20 +12,28 @@ use <centercap_top_plain.scad>
 $fn = $preview ? 16 : 128;
 
 module assembly() {
-color("orange")
-centercap_base();
+    color("orange")
+    centercap_base();
 
-swing_offset = base_height + bearing_height + arm_height + bearing_start_z_offset;
-color("blue")
-translate([0, 0, swing_offset])
-rotate([0, 180, 0])
-centercap_swing_screws();
+    swing_offset = base_height + bearing_height + arm_height + bearing_start_z_offset;
+    color("blue")
+    translate([0, 0, swing_offset])
+    rotate([0, 180, 0])
+    centercap_swing_screws();
 
-color("silver")
-translate([0, 0, - (bottom_height + mid_height + top_height) - 0.3]) // TODO fix
-rotate([0, 180, 180])
-centercap_top_vw_flat();
+    top_offset = - (bottom_height + mid_height + top_height);
+    swing_height = arm_height + bearing_start_z_offset + shaft_height;
+    color("silver")
+    translate([0, 0, top_offset + swing_offset - swing_height])
+    rotate([0, 180, 180])
+    centercap_top_vw_flat();
 }
 
 rotate([-90, 0, 0])
-assembly();
+intersection() {
+    assembly();
+    big = 1e3;
+    color("red")
+    translate([0, -big/2, -big/2])
+    cube(big);
+}

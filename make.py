@@ -19,7 +19,7 @@ model_filenames = [
     "centercap_assembly.scad"
 ]
 
-include_filenames = ["fast_dome.scad", "vw.scad", "key.scad", "vw-logo.svg"]
+include_filenames = ["fast_dome.scad", "vw.scad", "key.scad", "ribbed_hole.scad", "vw-logo.svg"]
 
 build_folder = "build"
 delete_scad = True
