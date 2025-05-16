@@ -34,7 +34,7 @@ endcap_height = 1;
 
 bottom_height = 2;
 
-mid_diam = 20;
+mid_diam = 18;
 mid_height = 1.5;
 
 top_diam = 10.5;
@@ -65,7 +65,7 @@ screw_head_height = 2 * 3.2;
 swing_clearance = 1;
 swing_height = bearing_height + arm_height + bearing_start_z_offset - swing_clearance - screw_head_height;
 
-shaft_height = 9.25;
+shaft_height = 8.25;
 shaft_upper_diam = bearing_inner_diam - bearing_tolerance - endcap_tolerance;
 notch_size = 2;
 notch_length = 3;
