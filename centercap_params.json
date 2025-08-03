@@ -2,7 +2,7 @@
     "fileFormatVersion": "1",
     "parameterSets": {
         "65mm (Volkswagen)": {
-            "inner_ring_diam": "56",
+            "inner_ring_diam": "56.5",
             "outer_diam": "65"
         },
         "75mm": {
