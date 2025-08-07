@@ -25,7 +25,7 @@ clip_height = 12;
 clip_width = 1.8;
 clip_straight_height = 4.5;
 clip_slant_height = 5;
-clip_end_width = 1;
+clip_end_width = 1.6;
 
 // Top parameters
 endcap_tolerance = 0.2;
