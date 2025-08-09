@@ -66,29 +66,24 @@ module centercap_swing_screws() {
 
     translate([0, 0, bearing_z_start]){
         difference() {
+            if (bearing_height < shaft_height) {
             union() {
                 cylinder(bearing_height, d=bearing_inner_diam - bearing_tolerance);
                 translate([0, 0, bearing_height])
                 cylinder(shaft_height - bearing_height, d=shaft_upper_diam);
             }
-            
-            
+            } else {
+                cylinder(shaft_height, d=bearing_inner_diam - bearing_tolerance); 
+            }
         }
         translate([0, 0, shaft_height])
         Key();    
     }
     }
-    cylinder(shaft_height+ bearing_z_start - m3_roof_thickness, d=m3_head_diam);
-    cylinder(shaft_height+ bearing_z_start, d=m3_loose_hole_diam);
-    
-    translate([0, 0, shaft_height+ bearing_z_start - m3_roof_thickness])
-    intersection() {
-        cylinder(h=layer_height, d=shaft_upper_diam);
-        
-        translate([-m3_loose_hole_diam/2, -m3_head_diam/2])
-        cube([m3_loose_hole_diam, m3_head_diam, layer_height]);
-    }
-    
+    cylinder(shaft_height+ bearing_z_start, d=m3_loose_hole_diam);   
+    cylinder(shaft_height+ bearing_z_start - m3_roof_thickness - m3_head_height, d=m3_head_diam);
+    translate([0, 0, shaft_height+ bearing_z_start - m3_roof_thickness - m3_head_height])
+    cylinder(m3_head_height, d1=m3_head_diam, d2=m3_loose_hole_diam);
     }
 }
 

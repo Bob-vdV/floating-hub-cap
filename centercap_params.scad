@@ -13,6 +13,9 @@ base_height = 2;
 outer_diam = 65;
 
 bearing_wall_width = 1.6;
+base_hole_clearance = 0.8;
+bearing_lip_width = 0.75;
+bearing_lip_height = 0.5;
 
 inner_ring_height = 10;
 inner_ring_diam = 56;
@@ -31,14 +34,15 @@ clip_end_width = 1.6;
 endcap_tolerance = 0.2;
 endcap_outer_tolerance = 0.4;
 endcap_height = 1;
+endcap_base_clearance = 1.5;
 
 bottom_height = 2;
 
-mid_diam = 18;
-mid_height = 1.5;
+mid_diam = 10.5;
+mid_height = endcap_base_clearance + base_height + bearing_lip_height;
 
-top_diam = 10.5;
-top_height = 1.1;
+top_diam = bearing_inner_diam;
+top_height = bearing_height / 2;
 
 endcap_hole_height = bottom_height + mid_height + top_height - endcap_height;
 endcap_outer_diam = outer_diam - endcap_outer_tolerance;
@@ -65,21 +69,19 @@ screw_head_height = 2 * 3.2;
 swing_clearance = 1;
 swing_height = bearing_height + arm_height + bearing_start_z_offset - swing_clearance - screw_head_height;
 
-shaft_height = 8.25;
+shaft_height = bearing_height - top_height;
 shaft_upper_diam = bearing_inner_diam - bearing_tolerance - endcap_tolerance;
-notch_size = 2;
-notch_length = 3;
 
 swing_inner_radius = arm_length - nut_loose_width - 2 * nut_clearance;
 
 // Key parameters
-key_size = 2;
-m3_hole_diam = 3.0;
-m3_head_diam = 5.5;
-m3_loose_hole_diam = 3.5;
-m3_hole_depth = 4;
-m3_head_height = 2.1;
-m3_roof_thickness = 3;
+key_size = 1.0;
+m3_hole_diam = 2.0; // 4???
+m3_head_diam = 6.0;
+m3_head_height = 3.0;
+m3_loose_hole_diam = m3_hole_diam + 0.5;
+m3_hole_depth = 8;
+m3_roof_thickness = 3.5;
 key_width = 1;
 
 // Curved VW parameters

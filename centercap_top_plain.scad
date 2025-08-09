@@ -8,7 +8,7 @@ module CenterCapTopPlain() {
     difference(){
         union() {
             cylinder(h=bottom_height, d=endcap_outer_diam);
-            
+
             translate([0, 0, bottom_height])
             cylinder(h=mid_height, d=mid_diam);
 
