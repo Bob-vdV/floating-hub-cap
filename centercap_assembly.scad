@@ -11,17 +11,6 @@ use <centercap_top_plain.scad>
 
 $fn = $preview ? 16 : 128;
 
-/*
-TODO:
- [x] adjust screw hole sizes for 12mm wood screw
- [x] Make swing screw hole countersunk
- [ ] Enclose swing bearing part?
- [ ] Water channels in base??
- [ ] ???
- [ ] profit
-*/
-
-
 module assembly() {
     color("orange")
     centercap_base();
