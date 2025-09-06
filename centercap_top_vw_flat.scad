@@ -1,8 +1,5 @@
-include <centercap_params.scad>
 use <centercap_top_plain.scad>
 use <vw.scad>
-
-$fn = $preview ? 16 : 128;
 
 module centercap_top_vw_flat() {
     CenterCapTopPlain();
@@ -15,5 +12,3 @@ module centercap_top_vw_flat() {
         }
     }
 }
-
-centercap_top_vw_flat();

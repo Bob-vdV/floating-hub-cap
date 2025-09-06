@@ -24,10 +24,10 @@
             "inner_ring_diam": "56.6",
             "outer_diam": "65"
         },
-        "68mm (BMW)": {
+        "69mm (BMW)": {
             "clip_straight_height": "4",
-            "inner_ring_diam": "64.5",
-            "outer_diam": "68.5"
+            "inner_ring_diam": "65",
+            "outer_diam": "69"
         },
         "75mm": {
             "inner_ring_diam": "71",
@@ -36,10 +36,10 @@
         "100mm": {
             "arm_clearance": "4",
             "clip_straight_height": "5.7",
-            "inner_ring_diam": "93.8",
+            "inner_ring_diam": "94",
             "number_of_clips": "6",
             "nut_clearance": "0.5",
-            "outer_diam": "100.4"
+            "outer_diam": "100"
         }
     }
 }

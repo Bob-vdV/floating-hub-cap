@@ -1,7 +1,5 @@
-include <centercap_params.scad>
 use <key.scad>
 use <ribbed_hole.scad>
-$fn = $preview ? 16 : 128;
 
 module CenterCapTopPlain() {
     rotate([180, 0, 0])
@@ -37,5 +35,3 @@ module CenterCapTopPlain() {
         }
     }
 }
-
-CenterCapTopPlain();
