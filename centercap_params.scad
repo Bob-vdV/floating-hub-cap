@@ -8,11 +8,16 @@ bearing_inner_diam = 8;
 bearing_height = 7;
 bearing_tolerance= 0.0;
 
+bearing_ring_diam = 12.0 - 0.5;
+
 // Base parameters
 base_height = 2;
 outer_diam = 65;
 
 bearing_wall_width = 1.6;
+base_hole_clearance = 0.8;
+bearing_lip_width = 0.75;
+bearing_lip_height = 0.5;
 
 inner_ring_height = 10;
 inner_ring_diam = 56;
@@ -25,23 +30,27 @@ clip_height = 12;
 clip_width = 1.8;
 clip_straight_height = 4.5;
 clip_slant_height = 5;
-clip_end_width = 1;
+clip_end_width = 1.6;
 
 // Top parameters
 endcap_tolerance = 0.2;
 endcap_outer_tolerance = 0.4;
 endcap_height = 1;
+endcap_base_clearance = 2.0;
 
 bottom_height = 2;
 
-mid_diam = 18;
-mid_height = 1.5;
+mid_diam = bearing_ring_diam;
+mid_height = endcap_base_clearance + base_height + bearing_lip_height;
 
-top_diam = 10.5;
-top_height = 1.1;
+top_diam = bearing_inner_diam;
+top_height = 5.0;
 
 endcap_hole_height = bottom_height + mid_height + top_height - endcap_height;
 endcap_outer_diam = outer_diam - endcap_outer_tolerance;
+
+top_nut_tol = 0.8;
+top_nut_lowerer = 0.2;
 
 // Swing parameters
 arm_width = 13.5;
@@ -65,22 +74,25 @@ screw_head_height = 2 * 3.2;
 swing_clearance = 1;
 swing_height = bearing_height + arm_height + bearing_start_z_offset - swing_clearance - screw_head_height;
 
-shaft_height = 8.25;
-shaft_upper_diam = bearing_inner_diam - bearing_tolerance - endcap_tolerance;
-notch_size = 2;
-notch_length = 3;
+shaft_height = bearing_height - top_height;
+shaft_upper_diam = bearing_inner_diam - bearing_tolerance;
 
 swing_inner_radius = arm_length - nut_loose_width - 2 * nut_clearance;
 
 // Key parameters
-key_size = 2;
-m3_hole_diam = 3.0;
-m3_head_diam = 5.5;
-m3_loose_hole_diam = 3.5;
-m3_hole_depth = 4;
-m3_head_height = 2.1;
-m3_roof_thickness = 3;
-key_width = 1;
+key_size = 3.0;
+m3_hole_diam = 3.5;//3.0
+m3_head_diam = 6.35;
+m3_loose_diam = m3_head_diam + nut_tolerance;
+m3_head_height = 2.0;
+m3_loose_hole_diam = m3_hole_diam;// + 0.5;
+m3_hole_depth = 7.5;
+m3_roof_thickness = 4.0; //2.5
+m3_nut_diam = m3_loose_diam;
+m3_nut_height = 2.15;
+key_width = 2.1;
+
+echo("Max screw length:", m3_roof_thickness + bearing_height + mid_height);
 
 // Curved VW parameters
 logo_height = 1;

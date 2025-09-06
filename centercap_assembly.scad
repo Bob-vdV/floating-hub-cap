@@ -15,16 +15,17 @@ module assembly() {
     color("orange")
     centercap_base();
 
-    swing_offset = base_height + bearing_height + arm_height + bearing_start_z_offset;
+    swing_offset = base_height + bearing_height + arm_height + bearing_start_z_offset + bearing_lip_height;
     color("blue")
     translate([0, 0, swing_offset])
     rotate([0, 180, 0])
     centercap_swing_screws();
-
-    top_offset = - (bottom_height + mid_height + top_height);
+    
+    
+    top_offset = -(endcap_base_clearance + bottom_height);
     swing_height = arm_height + bearing_start_z_offset + shaft_height;
     color("silver")
-    translate([0, 0, top_offset + swing_offset - swing_height])
+    translate([0, 0, top_offset])
     rotate([0, 180, 180])
     centercap_top_vw_flat();
 }

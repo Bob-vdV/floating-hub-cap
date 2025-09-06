@@ -8,7 +8,7 @@ module centercap_base(){
 linear_extrude(base_height){
     difference(){
         circle(d=outer_diam);
-        circle(d=20.5);
+        circle(d=mid_diam + base_hole_clearance);
     }
 }
 
@@ -16,13 +16,21 @@ linear_extrude(base_height){
 translate([0, 0, base_height])
 {
     // Bearing ring
-    linear_extrude(bearing_height){
+    linear_extrude(bearing_height + bearing_lip_height){
         difference(){
             circle(d=bearing_outer_diam + 2 * bearing_wall_width);
             circle(d=bearing_outer_diam);
         }
     }
-
+    
+    // Bearing lip
+    linear_extrude(bearing_lip_height){
+        difference(){
+            circle(d=bearing_outer_diam);
+            circle(d=bearing_outer_diam - 2 * bearing_lip_width);
+        }
+    }
+    
     // Inner ring
     linear_extrude(inner_ring_height){
         difference() {
