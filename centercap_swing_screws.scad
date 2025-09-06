@@ -1,6 +1,4 @@
-include <centercap_params.scad>
 use <key.scad>
-$fn = $preview ? 16 : 128;
 
 module ArcPart(inner_diam, outer_diam, height, rot_angle, center_rot=true) {
     rotate([0, 0, center_rot ? -rot_angle / 2 : 0])
@@ -8,10 +6,6 @@ module ArcPart(inner_diam, outer_diam, height, rot_angle, center_rot=true) {
         translate([ inner_diam / 2,0, 0])
         square([(outer_diam - inner_diam) / 2, height]);
     }   
-}
-
-if(swing_inner_radius  * 2 - 2 * arm_clearance <= bearing_outer_diam + 2 * bearing_wall_width){
-    echo("Warning: Bearing and swing might collide!");
 }
 
 module centercap_swing_screws() {
@@ -80,8 +74,10 @@ module centercap_swing_screws() {
             Key();    
         }
         }
+        
+        // Screw cutout
         cylinder(shaft_height+ bearing_z_start - m3_roof_thickness, d=m3_head_diam);
-        cylinder(shaft_height+ bearing_z_start, d=m3_loose_hole_diam);
+        cylinder(shaft_height+ bearing_z_start+tiny, d=m3_loose_hole_diam);
         translate([0, 0, shaft_height+ bearing_z_start - m3_roof_thickness])
         intersection() {
             cylinder(h=layer_height, d=m3_head_diam);
@@ -90,5 +86,3 @@ module centercap_swing_screws() {
         }
     }
 }
-
-centercap_swing_screws();

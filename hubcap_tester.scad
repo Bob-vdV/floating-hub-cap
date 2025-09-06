@@ -1,4 +1,4 @@
-include <centercap_params.scad>
+include <centercap_main.scad>
 
 $fn = $preview ? 16 : 128;
 

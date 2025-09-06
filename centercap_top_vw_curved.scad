@@ -1,10 +1,6 @@
-include <centercap_params.scad>
 use <centercap_top_plain.scad>
 use <fast_dome.scad>
 use <vw.scad>
-
-$fn = $preview ? 16 : 128;
-
 
 module centercap_top_vw_curved() {
     CenterCapTopPlain();
@@ -23,4 +19,3 @@ module centercap_top_vw_curved() {
         vw(endcap_outer_diam); 
     }
 }
-centercap_top_vw_curved();
