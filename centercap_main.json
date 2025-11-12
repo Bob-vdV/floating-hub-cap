@@ -1,45 +1,56 @@
 {
-    "fileFormatVersion": "1",
-    "parameterSets": {
-        "55mm": {
-            "arm_clearance": "2",
-            "bearing_wall_width": "1.5",
-            "inner_ring_diam": "51",
-            "outer_diam": "55"
-        },
-        "60mm": {
-            "inner_ring_diam": "56",
-            "outer_diam": "60"
-        },
-        "60mm OD 57mm ID (Dezent)": {
-            "inner_ring_diam": "57",
-            "outer_diam": "60"
-        },
-        "64mm (Saturn, Vauxhall, Opel)": {
-            "inner_ring_diam": "61",
-            "number_of_clips": "6",
-            "outer_diam": "64"
-        },
-        "65mm (Volkswagen)": {
-            "inner_ring_diam": "56.6",
-            "outer_diam": "65"
-        },
-        "69mm (BMW)": {
-            "clip_straight_height": "4",
-            "inner_ring_diam": "65",
-            "outer_diam": "69"
-        },
-        "75mm": {
-            "inner_ring_diam": "71",
-            "outer_diam": "75"
-        },
-        "100mm": {
-            "arm_clearance": "4",
-            "clip_straight_height": "5.7",
-            "inner_ring_diam": "94",
-            "number_of_clips": "6",
-            "nut_clearance": "0.5",
-            "outer_diam": "100"
-        }
+  "fileFormatVersion": "1",
+  "parameterSets": {
+    "55mm OD 51mm ID": {
+      "arm_clearance": "2",
+      "bearing_wall_width": "1.5",
+      "inner_ring_diam": "51",
+      "outer_diam": "55"
+    },
+    "60mm OD 56mm ID": {
+      "inner_ring_diam": "56",
+      "outer_diam": "60"
+    },
+    "60mm OD 57mm ID (Dezent)": {
+      "inner_ring_diam": "57",
+      "outer_diam": "60"
+    },
+    "60mm OD 55.6mm ID (Dotz)": {
+      "outer_diam": "60",
+      "inner_ring_diam": "55.6",
+      "clip_straight_height": "3.4",
+      "clip_width": "3",
+      "clip_clearance": "2",
+      "clip_length": "8",
+      "inner_ring_height": "8",
+      "inner_ring_wall_width": "2",
+      "endcap_base_clearance": "1"
+    },
+    "64mm OD 61mm ID (Saturn, Vauxhall, Opel)": {
+      "inner_ring_diam": "61",
+      "number_of_clips": "6",
+      "outer_diam": "64"
+    },
+    "65mm OD 56.6mm ID (Volkswagen)": {
+      "inner_ring_diam": "56.6",
+      "outer_diam": "65"
+    },
+    "69mm OD 65mm ID (BMW)": {
+      "clip_straight_height": "4",
+      "inner_ring_diam": "65",
+      "outer_diam": "69"
+    },
+    "75mm OD 71mm ID": {
+      "inner_ring_diam": "71",
+      "outer_diam": "75"
+    },
+    "100mm OD 94mm ID": {
+      "arm_clearance": "4",
+      "clip_straight_height": "5.7",
+      "inner_ring_diam": "94",
+      "number_of_clips": "6",
+      "nut_clearance": "0.5",
+      "outer_diam": "100"
     }
+  }
 }
