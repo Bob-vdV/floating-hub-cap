@@ -14,6 +14,7 @@ params_filename = "centercap_main.scad"
 json_filename = "centercap_main.json"  # Actual param values stored here
 
 # Models dependent on params
+include_folder = "centercap"
 model_filenames = [
     "centercap_base.scad",
     "centercap_swing_screws.scad",

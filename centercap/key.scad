@@ -1,7 +1,3 @@
-$fn = $preview ? 16 : 128;
-
-include <centercap_main.scad>
-
 module Key(){
     //rotate([0, 0, -90])
     intersection() {
