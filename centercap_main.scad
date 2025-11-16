@@ -1,9 +1,9 @@
-include <centercap_assembly.scad>
-include <centercap_base.scad>
-include <centercap_swing_screws.scad>
-include <centercap_top_plain.scad>
-include <centercap_top_vw_curved.scad>
-include <centercap_top_vw_flat.scad>
+include <centercap/centercap_assembly.scad>
+include <centercap/centercap_base.scad>
+include <centercap/centercap_swing_screws.scad>
+include <centercap/centercap_top_plain.scad>
+include <centercap/centercap_top_vw_curved.scad>
+include <centercap/centercap_top_vw_flat.scad>
 
 $fn = $preview ? 16 : 128;
 

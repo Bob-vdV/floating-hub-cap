@@ -1,5 +1,3 @@
-$fn = $preview ? 16 : 128;
-
 module Ribs(thread_diam, rib_depth, rib_diam, num_ribs){
     difference() {
         circle(d=thread_diam);
