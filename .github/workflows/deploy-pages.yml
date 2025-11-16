@@ -18,10 +18,11 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
+        with:
+          repository: Bob-vdV/openscad-gh-pages
       - name: Deploy openscad customizer
         uses: ./
         id: openscad-deployment
         with:
-          repository: Bob-vdV/openscad-gh-pages
           filename: "centercap_main.scad"
           libraries: "deploy/libraries.json"
