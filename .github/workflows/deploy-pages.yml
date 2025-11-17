@@ -20,13 +20,14 @@ jobs:
       - name: Checkout code
         uses: actions/checkout@v5
         with:
-          path: main
+          path: ./
       - name: Checkout customizer
         uses: actions/checkout@v5
         with:
           repository: Bob-vdV/openscad-gh-pages
+          path: ./pages
       - name: Copy main files to root
-        run: cp -a main/. ./
+        run: ls -R ./ && cp -a ./pages/. ./
         shell: bash
       - name: list files
         run: ls -R ./
