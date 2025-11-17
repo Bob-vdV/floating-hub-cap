@@ -18,11 +18,16 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout code
-        uses: actions/checkout@v2
+        uses: actions/checkout@v5
+        with:
+          path: main
       - name: Checkout customizer
-        uses: actions/checkout@v2
+        uses: actions/checkout@v5
         with:
           repository: Bob-vdV/openscad-gh-pages
+      - name: Copy main files to root
+        run: cp -a main/. ./
+        shell: bash
       - name: list files
         run: ls -R ./
         shell: bash
