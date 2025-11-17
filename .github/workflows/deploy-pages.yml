@@ -20,6 +20,9 @@ jobs:
       - uses: actions/checkout@v2
         with:
           repository: Bob-vdV/openscad-gh-pages
+      - name: list files
+        run: ls -R ./
+        shell: bash
       - name: Deploy openscad customizer
         uses: ./
         id: openscad-deployment
