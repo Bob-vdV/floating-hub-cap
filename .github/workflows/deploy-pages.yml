@@ -17,7 +17,10 @@ jobs:
       url: ${{ steps.openscad-deployment.outputs.page_url }}
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v2
+      - name: Checkout code
+        uses: actions/checkout@v2
+      - name: Checkout customizer
+        uses: actions/checkout@v2
         with:
           repository: Bob-vdV/openscad-gh-pages
       - name: list files
