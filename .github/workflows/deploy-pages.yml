@@ -17,21 +17,8 @@ jobs:
       url: ${{ steps.openscad-deployment.outputs.page_url }}
     runs-on: ubuntu-latest
     steps:
-      - name: Checkout code
+      - name: Checkout
         uses: actions/checkout@v5
-        with:
-          path: ./
-      - name: Checkout customizer
-        uses: actions/checkout@v5
-        with:
-          repository: Bob-vdV/openscad-gh-pages
-          path: ./pages
-      - name: Copy main files to root
-        run: ls -R ./ && cp -a ./pages/. ./
-        shell: bash
-      - name: list files
-        run: ls -R ./
-        shell: bash
       - name: Deploy openscad customizer
         uses: ./
         id: openscad-deployment
