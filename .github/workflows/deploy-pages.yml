@@ -19,8 +19,13 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v5
+      - name: Checkout pages action
+        uses: actions/checkout@v5
+        with:
+          repository: Bob-vdV/openscad-gh-pages
+          path: openscad-gh-pages
       - name: Deploy openscad customizer
-        uses: ./
+        uses: ./openscad-gh-pages
         id: openscad-deployment
         with:
           filename: "centercap_main.scad"
