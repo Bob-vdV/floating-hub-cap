@@ -16,7 +16,7 @@
       "repo": "https://github.com/Bob-vdV/floating-hub-cap.git",
       "branch": "main",
       "zipIncludes": ["*"],
-      "zipExcludes": [".git/**"]
+      "zipExcludes": [".git/**", "README.md"]
     }
   ],
   "fonts": {
