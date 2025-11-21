@@ -3,8 +3,8 @@ name: Release
 run-name: Release
 on:
   push:
-    branches: 
-      - main
+    branches:
+#      - main
 jobs:
   generation:
     permissions: write-all
@@ -16,10 +16,10 @@ jobs:
         run: sudo snap install openscad-nightly
 
       - name: Set up python
-        uses: actions/setup-python@v5 
+        uses: actions/setup-python@v5
         with:
-          python-version: '3.11'
-          
+          python-version: "3.11"
+
       - name: Checkout code
         uses: actions/checkout@v2
 
@@ -32,24 +32,23 @@ jobs:
         uses: amitsingh-007/next-release-tag@v6.0.0
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
-          tag_prefix: 'v'
-          tag_template: 'yyyy.mm.dd.i'
+          tag_prefix: "v"
+          tag_template: "yyyy.mm.dd.i"
 
       - name: Zip files
-        run: | 
+        run: |
           for b in build/*
           do
             n=${b#build/}
             zip -r "$n.zip" "$b"
           done
-          
+
       - name: Upload release
         uses: softprops/action-gh-release@v1
         with:
-            files: "*.zip"
-            fail_on_unmatched_files: true
-            name: Release ${{ steps.generate_release_tag.outputs.next_release_tag }}
-            tag_name: ${{ steps.generate_release_tag.outputs.next_release_tag }}
-            token: ${{secrets.GITHUB_TOKEN}}
-            generate_release_notes: true
-            
+          files: "*.zip"
+          fail_on_unmatched_files: true
+          name: Release ${{ steps.generate_release_tag.outputs.next_release_tag }}
+          tag_name: ${{ steps.generate_release_tag.outputs.next_release_tag }}
+          token: ${{secrets.GITHUB_TOKEN}}
+          generate_release_notes: true
