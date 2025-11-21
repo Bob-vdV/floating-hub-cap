@@ -15,7 +15,7 @@
       "name": "centercap",
       "repo": "https://github.com/Bob-vdV/floating-hub-cap.git",
       "branch": "main",
-      "zipIncludes": ["*"],
+      "zipIncludes": [],
       "zipExcludes": [".git/**", "README.md"]
     }
   ],
