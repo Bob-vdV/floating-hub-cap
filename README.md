@@ -4,6 +4,10 @@ Openscad files for a floating wheel hub cap. More details are at https://www.pri
 
 The latest STL files are downloadable at https://github.com/Bob-vdV/floating-hub-cap/releases/latest.
 
+## Online Customizer (new!)
+Check out the online customizer at https://bobvdv.nl/floating-hub-cap. 
+To use it, click on 'Customize' and then change the main parameters for your hub cap size. Then click 'Render' and 'Download STL' for each part in the `selected_part` dropdown menu. 
+
 ## Manual generation
 
 Each STL file can be generated normally using the openscad GUI. The nightly version of openscad is highly recommended because of its better performance with manifold. All parameters can be changed using the customizer in `centercap_main.scad`. The most important four parameters are at the top under `main parameters`. For each part in the `selected part` dropdown menu, render and export it to an STL.
