@@ -1,4 +1,4 @@
-include <centercap_top_plain.scad>
+include <top_plain.scad>
 include <vw.scad>
 
 module centercap_top_vw_flat() {

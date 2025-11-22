@@ -1,0 +1,1 @@
+./centercap/assembly.scad
