@@ -16,15 +16,19 @@
       "outer_diam": "60"
     },
     "60mm OD 55.6mm ID (Dotz)": {
-      "outer_diam": "60",
-      "inner_ring_diam": "55.6",
-      "clip_straight_height": "3.4",
-      "clip_width": "3",
       "clip_clearance": "2",
       "clip_length": "8",
+      "clip_straight_height": "3.4",
+      "clip_width": "3",
+      "endcap_base_clearance": "1",
+      "inner_ring_diam": "55.6",
       "inner_ring_height": "8",
       "inner_ring_wall_width": "2",
-      "endcap_base_clearance": "1"
+      "outer_diam": "60"
+    },
+    "61mm OD 59mm ID": {
+      "inner_ring_diam": "59",
+      "outer_diam": "61"
     },
     "64mm OD 61mm ID (Saturn, Vauxhall, Opel)": {
       "inner_ring_diam": "61",
@@ -43,6 +47,10 @@
     "75mm OD 71mm ID": {
       "inner_ring_diam": "71",
       "outer_diam": "75"
+    },
+    "84mm OD 75mm ID": {
+      "inner_ring_diam": "75",
+      "outer_diam": "84"
     },
     "100mm OD 94mm ID": {
       "arm_clearance": "4",

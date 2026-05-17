@@ -19,6 +19,7 @@ model_filenames = [
     "centercap_base.scad",
     "centercap_swing_screws.scad",
     "centercap_top_plain.scad",
+    "centercap_top_curved.scad",
     "centercap_top_vw_flat.scad",
     "centercap_top_vw_curved.scad",
     "centercap_assembly.scad",
@@ -33,7 +34,15 @@ include_filenames = [
     "vw-logo.svg",
 ]
 
-part_names = ["assembly", "base", "swing", "top-plain", "top-vw-curved", "top-vw-flat"]
+part_names = [
+    "assembly",
+    "base",
+    "swing",
+    "top-plain",
+    "top-curved",
+    "top-vw-curved",
+    "top-vw-flat",
+]
 
 build_folder = "build"
 
@@ -62,7 +71,7 @@ def main():
                 subprocess.run([default_path, "--version"])
                 openscad_path = default_path
                 break
-            except:
+            except FileNotFoundError:
                 pass
         if openscad_path is None:
             raise Exception(

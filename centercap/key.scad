@@ -1,5 +1,5 @@
 module Key(){
-    //rotate([0, 0, -90])
+//    rotate([0, 0, 180]) // Might need to put in the bottom to keep the water out
     intersection() {
         cylinder(h=key_size, d=shaft_upper_diam);
             

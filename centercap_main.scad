@@ -2,15 +2,16 @@ include <centercap/assembly.scad>
 include <centercap/base.scad>
 include <centercap/swing_screws.scad>
 include <centercap/top_plain.scad>
+include <centercap/top_curved.scad>
 include <centercap/top_vw_curved.scad>
 include <centercap/top_vw_flat.scad>
 
 $fn = $preview ? 16 : 128;
 
 /* [Main parameters] */
-selected_part = "base"; // ["assembly", "base", "swing", "top-plain", "top-vw-curved", "top-vw-flat"]
-outer_diam = 65;
-inner_ring_diam = 56;
+selected_part = "base"; // ["assembly", "base", "swing", "top-plain", "top-curved", "top-vw-curved", "top-vw-flat"]
+outer_diam = 65; // [50:0.1:120]
+inner_ring_diam = 56; // [50:0.1:120]
 clip_straight_height = 4.5; // Height of the inner ring
 
 /* [General parameters] */
@@ -119,6 +120,8 @@ if (selected_part == "assembly") {
   centercap_swing_screws();
 } else if (selected_part == "top-plain") {
   CenterCapTopPlain();
+} else if (selected_part == "top-curved") {
+  CenterCapTopCurved();
 } else if (selected_part == "top-vw-curved") {
   centercap_top_vw_curved();
 } else if (selected_part == "top-vw-flat") {
