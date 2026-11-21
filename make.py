@@ -6,6 +6,7 @@ import argparse
 
 openscad_paths = [
     "openscad",
+    "/Applications/OpenSCAD.app/Contents/MacOS/OpenSCAD",
     r"C:\Program Files\OpenSCAD (Nightly)\openscad.exe",
     r"C:\Program Files\OpenSCAD\openscad.exe",
 ]
@@ -16,13 +17,13 @@ json_filename = "centercap_main.json"  # Actual param values stored here
 # Models dependent on params
 include_folder = "centercap"
 model_filenames = [
-    "centercap_base.scad",
-    "centercap_swing_screws.scad",
-    "centercap_top_plain.scad",
-    "centercap_top_curved.scad",
-    "centercap_top_vw_flat.scad",
-    "centercap_top_vw_curved.scad",
-    "centercap_assembly.scad",
+    "base.scad",
+    "swing_screws.scad",
+    "top_plain.scad",
+    "top_curved.scad",
+    "top_vw_flat.scad",
+    "top_vw_curved.scad",
+    "assembly.scad",
     "key.scad",
 ]
 
